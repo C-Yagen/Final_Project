@@ -36,6 +36,11 @@ public class Window extends JFrame {
     }
 
     public void myPaint(Graphics g) {
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        if (game.getGameState() == 1){
+            game.getP1().draw(g);
+        }
 
     }
 }
