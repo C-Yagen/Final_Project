@@ -1,9 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
+
 public class Window extends JFrame {
-    private final int WINDOW_WIDTH = 1000;
-    private final int WINDOW_HEIGHT = 800;
+    public static final int WINDOW_WIDTH = 1000;
+    public static final int WINDOW_HEIGHT = 800;
     private final int TITLE_BAR_HEIGHT = 23;
     private Game game;
 
@@ -38,9 +40,18 @@ public class Window extends JFrame {
     public void myPaint(Graphics g) {
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-        if (game.getGameState() == 1){
-            game.getP1().draw(g);
+        int gs = game.getGameState();
+        if (gs == -1){
+            return;
         }
+        ArrayList<Square> squares = game.getLevels().get(gs);
+        for (int i = 0; i < squares.size(); i++) {
+            squares.get(i).draw(g);
+        }
+
+        game.getP1().draw(g);
+        game.getP2().draw(g);
+
 
     }
 }
