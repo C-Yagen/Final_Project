@@ -74,10 +74,14 @@ public class Player {
     public void setY(int y) {this.y = y;}
     public int getxSpawn() {return xSpawn;}
     public int getySpawn() {return ySpawn;}
+    public Color getColor() {return color;}
 
     public void draw(Graphics g){
         g.setColor(color);
         g.fillRect(x, y, PLAYERLENGTH, PLAYERLENGTH);
+        g.setColor(Color.magenta);
+        g.drawString("X: " + x, x, y-5);
+        g.drawString("Y: " + y, x, y+5);
 
     }
 }

@@ -3,12 +3,8 @@ import java.awt.*;
 public class Fire extends Square{
 
     public Fire(int x1, int x2, int y1, int y2, int num) {
-        super.setX1(x1);
-        super.setX2(x2);
-        super.setY1(y1);
-        super.setY2(y2);
+        super(x1,x2,y1,y2,num);
         super.setColor(Color.red);
-        super.num = num;
     }
 
     public CollisionInfo yCollision(Player p){

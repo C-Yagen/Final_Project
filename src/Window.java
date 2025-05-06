@@ -44,11 +44,23 @@ public class Window extends JFrame {
         if (gs == -1){
             return;
         }
+        if (gs == -2){
+            //won
+            return;
+        }
         ArrayList<Square> squares = game.getLevels().get(gs);
         for (int i = 0; i < squares.size(); i++) {
             squares.get(i).draw(g);
         }
-
+        ArrayList<Button> buttons = game.getButtons();
+        for (int i = 0; i < buttons.size(); i++) {
+            buttons.get(i).draw(g);
+            if (buttons.get(i).isActivated()){
+                buttons.get(i).getSquare().draw(g);
+            }
+        }
+        game.getRedExit().draw(g);
+        game.getGreenExit().draw(g);
         game.getP1().draw(g);
         game.getP2().draw(g);
 
